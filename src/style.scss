@@ -144,6 +144,15 @@
     display: flex;
     flex-direction: column;
     }
+    &__second {
+    flex-direction: row;
+   justify-content: space-around;
+    }
   }
 
 }
+
+
+
+
+

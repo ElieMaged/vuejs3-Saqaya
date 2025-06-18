@@ -21,6 +21,8 @@ import { ref } from 'vue'
     </div>
 </span>
 
+<div class="footer__second">
+
 <span class="footer__two">
   
     <!-- list1 -->
@@ -79,5 +81,11 @@ import { ref } from 'vue'
 
  
 </span>
+<span>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore eum ullam qui obcaecati cum eos accusamus corporis exercitationem perspiciatis non! Unde aspernatur officia accusantium voluptate explicabo nam, ipsum ullam nulla.
+</span>
+</div>
+
+
     </footer>
 </template>
