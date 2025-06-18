@@ -59,27 +59,6 @@
   .navbar__links--show {
     display: flex;
   }
-  .navbar .footer {
-    display: flex;
-    flex-direction: column;
-  }
-  .navbar .footer__one {
-    display: inline-flex;
-    flex-direction: column;
-  }
-  .navbar .footer__one__row {
-    display: block;
-    flex-direction: column;
-    margin: 1rem;
-  }
-  .navbar .footer__one__row__news {
-    display: inline-block;
-    flex-direction: column;
-  }
-  .navbar .footer__one__row__email {
-    display: inline-block;
-    flex-direction: column;
-  }
 }
 
 .sign-in {
@@ -120,9 +99,24 @@
 }
 .footer__two {
   display: flex;
+  flex-direction: row;
 }
 .footer__two > ul {
   list-style: none;
+}
+
+@media (max-width: 600px) {
+  .footer {
+    text-align: center;
+  }
+  .footer__one__row {
+    display: flex;
+    flex-direction: column;
+  }
+  .footer__two {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

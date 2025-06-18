@@ -76,32 +76,10 @@
       display: flex;
     }
 
-    .footer {
-    display: flex;
-    flex-direction: column;
-    &__one {
-        display: inline-flex;
-        flex-direction: column;
-   
-       &__row {
-        display:block;
-        flex-direction: column;
-        margin: 1rem;
-        
-        &__news {
-            display: inline-block;
-            flex-direction: column;
-        }
-        &__email {
-            display: inline-block;
-            flex-direction: column;
-        }
-       }
-       
-    }
+    
 }
   }
-}
+
 
 
 
@@ -145,11 +123,27 @@
        }
        
     }
-    &__two {
+&__two {
         display: flex;
+        flex-direction: row;
     }
     &__two > ul {
         list-style: none
     }
 }
 
+
+@media (max-width: 600px) {
+  .footer {
+    text-align: center;
+    &__one__row {
+    display: flex;
+    flex-direction: column;
+    }
+    &__two {
+    display: flex;
+    flex-direction: column;
+    }
+  }
+
+}
