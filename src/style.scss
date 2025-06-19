@@ -140,16 +140,24 @@
     display: flex;
     flex-direction: column;
     }
+    &__second {
+      display: flex;
+    flex-direction: column;
+   justify-content: space-around;
+    }
     &__two {
     display: flex;
     flex-direction: column;
     }
-    &__second {
-    flex-direction: row;
-   justify-content: space-around;
-    }
+
   }
 
+}
+
+.footer__one__row__email {
+display: flex;
+flex-direction: column;
+margin: 1rem;
 }
 
 

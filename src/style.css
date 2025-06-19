@@ -113,14 +113,20 @@
     display: flex;
     flex-direction: column;
   }
+  .footer__second {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
   .footer__two {
     display: flex;
     flex-direction: column;
   }
-  .footer__second {
-    flex-direction: row;
-    justify-content: space-around;
-  }
+}
+.footer__one__row__email {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
 }
 
 /*# sourceMappingURL=style.css.map */

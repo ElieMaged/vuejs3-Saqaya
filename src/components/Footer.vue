@@ -14,8 +14,8 @@ import { ref } from 'vue'
      </div>
 
     <div class=footer__one__row__email>        
-       <h2>Join Our Newsletter</h2>
-       <p>Join Our very exciting newsletter!</p>
+       <input type="text">
+       <button>Submit</button>
      </div>
 
     </div>
