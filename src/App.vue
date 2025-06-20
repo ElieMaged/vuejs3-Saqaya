@@ -1,13 +1,9 @@
 <script setup lang="ts">
-import Header from './components/Header.vue'
-import MainBody from './components/MainBody.vue'
-import Footer from './components/Footer.vue'
+import MainPage from './components/MainPage.vue'
 </script>
 
 <template>
-   <Header />
-   <MainBody />
-   <Footer />
+<MainPage />
 
 </template>
 

@@ -13,9 +13,9 @@ import { ref } from 'vue'
        <p>Join Our very exciting newsletter!</p>
      </div>
 
-    <div class=footer__one__row__email>        
-       <input type="text">
-       <button>Submit</button>
+    <div class=footer__one__row--email>        
+       <input placeholder="Your E-mail" type="text" class="footer__one--input">
+       <button class=footer__one--button>Submit</button>
      </div>
 
     </div>
@@ -23,7 +23,7 @@ import { ref } from 'vue'
 
 <div class="footer__second">
 
-<span class="footer__two">
+<div class="footer__two">
   
     <!-- list1 -->
 <ul>
@@ -71,21 +71,132 @@ import { ref } from 'vue'
 </li>
 
 </ul>
-   
 
-   
-
-   
-
-   
-
- 
-</span>
-<span>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore eum ullam qui obcaecati cum eos accusamus corporis exercitationem perspiciatis non! Unde aspernatur officia accusantium voluptate explicabo nam, ipsum ullam nulla.
-</span>
+</div>
+<div class="footer__second--address">
+    <h2>399 Crowfield Road,</h2>
+    <h2>Pheonix Arizona B5012</h2>
+    <a href="#">asdasdad@hotmail.com</a>
+</div>
 </div>
 
 
     </footer>
 </template>
+
+<style lang="scss" scoped >
+.footer {
+    display: flex;
+    flex-direction: column;
+    margin: 0px;
+    &__one {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+       background-color: rgb(255, 255, 255);
+       margin: 0;
+       &__row {
+        display: flex;
+        flex-direction: row;
+        justify-content:space-around;
+        margin: 1rem;
+        &__news {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+        }
+       }
+       
+    }
+&__two {
+        display: flex;
+        flex-direction: row;
+    }
+    &__two > ul {
+        list-style: none
+    }
+}
+
+
+@media (max-width: 700px) {
+  .footer {
+    &__one__row {
+    display: flex;
+    flex-direction: column;
+    }
+    &__second {
+      display: flex;
+    flex-direction: column;
+   justify-content: space-around;
+      
+    }
+    &__two {
+    display: flex;
+    flex-direction: column;
+
+    }
+ul > li {
+     text-align:center;
+}
+  }
+
+}
+.footer {
+  &__one--input {
+    &__:focus {
+        border:none;
+        border-color: transparent;
+    }
+  border: none;
+  border-color: transparent;
+  border-bottom:1px solid #444;
+  padding-left: 1rem;
+  padding-left: 1rem;
+  width:100%;
+  }
+&__one--button {
+  border: none !important;
+  border-color: transparent !important;
+  background-color: black;
+  color: white;
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+  width:50%;
+  cursor: pointer;
+  box-shadow: 5px 10px;
+}
+&__one__row--email {
+display: flex;
+flex-direction: column;
+margin: 1rem;
+}
+&__second {
+    text-align: right;
+    display:flex;
+    flex-direction: col;
+    justify-content: space-around;
+     background-color: #d400ff;
+ text-align: center;
+ &--address {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align:end;
+ }
+}
+}
+
+ul > li {
+    text-align:left;
+    margin-top: 1rem;
+}
+
+
+
+
+
+
+
+
+
+</style>
