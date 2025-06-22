@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import Header from './Header.vue'
-import MainBody from './MainBody.vue'
+import ProductList from './ProductList.vue'
 import Footer from './Footer.vue'
 </script>
 
 <template>
    <Header />
-   <MainBody />
+   <ProductList />
    <Footer />
 
 </template>

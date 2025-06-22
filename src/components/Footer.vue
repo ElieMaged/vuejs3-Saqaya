@@ -182,6 +182,8 @@ margin: 1rem;
     flex-direction: column;
     justify-content: center;
     text-align:end;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
  }
 }
 }
