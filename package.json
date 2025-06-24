@@ -15,7 +15,8 @@
     "sass": "^1.89.2",
     "scss": "^0.2.4",
     "vue": "^3.5.17",
-    "vue-sidebar-menu": "^5.7.0"
+    "vue-sidebar-menu": "^5.7.0",
+    "vuex": "^4.1.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.2.3",
