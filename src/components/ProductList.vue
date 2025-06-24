@@ -14,11 +14,11 @@ interface Product {
 const products = ref<Product[]>([])
 
 onMounted(async () => {
+
   try {
-    const res = await fetch('https://dummyjson.com/products?limit=10&skip=10&select=title,price');
+    const res = await fetch('https://dummyjson.com/products/category/smartphones');
    const data = await res.json();
    products.value = data.products;
-   console.log(data.products[0])
   } catch (err) {
     console.error('Fetch failed:', err);
   }
@@ -28,7 +28,26 @@ onMounted(async () => {
 </script>
 
 <template>
-<ProductCard 
+<div class="product--page">
 
+
+<ProductCard 
+v-for="product in products"
+:key="product.id"
+:product="product"
+class="product--page__single"
 />
+</div>
 </template>
+
+<style scoped lang="scss">
+.product--page {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+&__single {
+  width: 90%;
+}
+}
+</style>
