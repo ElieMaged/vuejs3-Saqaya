@@ -37,6 +37,7 @@ defineProps<{
 
 function addToCart(product:Object) {
   store.commit('ADD_TO_CART', product);
+  alert(`You have added ${product.title} to your cart!` )
 }
 
 </script>

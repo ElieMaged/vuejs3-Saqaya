@@ -17,9 +17,16 @@
         <!-- Cart items -->
 
         <p v-show="cartEmpty">No items in cart.</p>
-        <!-- <div v-show="!cartEmpty" v-for="prod of products">
-hiii :3
-        </div> -->
+
+        <div v-show="!cartEmpty" v-for="product of cartItems">
+          <ul>
+           <SideCard
+           :key="product.id"
+           :product="product"
+           />
+          </ul>
+        </div>
+        <p v-show="!cartEmpty">Grand Total :{{ cartTotal }}$</p>
       </div>
     </div>
 
@@ -29,12 +36,13 @@ hiii :3
 </template>
 
 <script lang="ts" setup>
+// imports
 import { ref } from 'vue';
 import { createApp } from 'vue'
 import { computed } from 'vue'
 import { createStore, useStore } from 'vuex'
 import {state} from '../store/index'
-
+import SideCard from './SideCard.vue'
 const isOpen = ref(false);
 const cartEmpty = ref(false);
 
@@ -43,9 +51,10 @@ const store = useStore();
 const products = computed(() => store.state.cart);
 
 
-// getters
+
 const cartTotal = computed(() => store.getters.cartTotal);
 const cartCount = computed(() => store.getters.cartItemCount);
+const cartItems = computed(() => store.getters.cartItems);
 
 // cart toggle
 const toggleCart = () => {

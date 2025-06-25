@@ -17,7 +17,7 @@ const products = ref<Product[]>([])
 onMounted(async () => {
 
   try {
-    const res = await fetch('https://dummyjson.com/products/category/smartphones');
+   const res = await fetch('https://dummyjson.com/products/category/smartphones');
    const data = await res.json();
    products.value = data.products;
   } catch (err) {

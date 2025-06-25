@@ -1,19 +1,16 @@
 <template>
   <div class="side-cart-card">
-    <img :src="product.image" alt="Product Image" class="product-image" />
+    <img :src="product.images[0]" alt="Product Image" class="product-image" />
 
     <div class="product-details">
       <h4 class="product-title">{{ product.title }}</h4>
-      <p class="product-price">${{ product.price.toFixed(2) }}</p>
-      <div class="quantity-controls">
-        <button class="qty-btn" @click="decrease">−</button>
-        <span class="qty">{{ quantity }}</span>
-        <button class="qty-btn" @click="increase">+</button>
+      <h5>{{ product.quantity }}</h5>
+      <p class="product-price">{{ product.price }}$</p>
+      
+      
       </div>
     </div>
 
-    <button class="remove-btn" @click="$emit('remove', product.id)">×</button>
-  </div>
 </template>
 
 <script setup lang="ts">
@@ -30,7 +27,7 @@ const props = defineProps<{
 .side-cart-card {
   display: flex;
   align-items: center;
-  background: #fff;
+  background: #c4c4c4;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   padding: 12px;

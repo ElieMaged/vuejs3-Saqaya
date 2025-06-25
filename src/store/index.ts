@@ -7,6 +7,7 @@ export interface Product {
   description: string;
   price: number;
   category?: string;
+  quantity:number;
 }
 
 export interface State {
@@ -22,7 +23,8 @@ export default createStore<State>({
   },
   mutations: {
     ADD_TO_CART(state:State, product: Product) {
-        state.cart.push(product)
+          state.cart.push(product);
+        
     }
   },
   actions: {
@@ -32,6 +34,7 @@ export default createStore<State>({
   },
   getters: {
     cartItemCount: (state:State) => state.cart.length,
-    cartTotal: (state:State) => state.cart.reduce((total, product) => total + product.price, 0)
+    cartTotal: (state:State) => state.cart.reduce((total, product) => total + product.price, 0),
+    cartItems: (state:State) => state.cart
   }
 });
