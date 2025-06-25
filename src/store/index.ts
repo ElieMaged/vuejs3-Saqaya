@@ -21,17 +21,17 @@ export default createStore<State>({
     cart: [],
   },
   mutations: {
-    ADD_TO_CART(state, product: Product) {
+    ADD_TO_CART(state:State, product: Product) {
         state.cart.push(product)
     }
   },
   actions: {
-    addToCart({ commit }, product: Product) {
+    addToCart({ commit }:any, product: Product) {
       commit('ADD_TO_CART', product);
     }
   },
   getters: {
-    cartItemCount: (state) => state.cart.length,
-    cartTotal: (state) => state.cart
+    cartItemCount: (state:State) => state.cart.length,
+    cartTotal: (state:State) => state.cart.reduce((total, product) => total + product.price, 0)
   }
 });
