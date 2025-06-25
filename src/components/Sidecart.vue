@@ -15,7 +15,11 @@
       </div>
       <div class="cart-body">
         <!-- Cart items -->
-        <p>No items in cart.</p>
+
+        <p v-show="cartEmpty">No items in cart.</p>
+        <!-- <div v-show="!cartEmpty" v-for="prod of products">
+hiii :3
+        </div> -->
       </div>
     </div>
 
@@ -26,12 +30,31 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
+import { createApp } from 'vue'
+import { computed } from 'vue'
+import { createStore, useStore } from 'vuex'
+import {state} from '../store/index'
 
 const isOpen = ref(false);
+const cartEmpty = ref(false);
 
+const store = useStore();
+
+const products = computed(() => store.state.cart);
+
+
+// getters
+const cartTotal = computed(() => store.getters.cartTotal);
+const cartCount = computed(() => store.getters.cartItemCount);
+
+// cart toggle
 const toggleCart = () => {
   isOpen.value = !isOpen.value;
+cartCount.value === 0 ? cartEmpty.value = true : cartEmpty.value = false;
+console.log(products.value[0])
 };
+
+
 </script>
 
 <style lang="scss" scoped>

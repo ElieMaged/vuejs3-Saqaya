@@ -14,6 +14,7 @@
 
 <script setup lang="ts">
 import { createApp } from 'vue'
+import { computed } from 'vue'
 import { createStore, useStore } from 'vuex'
 import {state} from '../store/index'
 
@@ -24,9 +25,10 @@ interface Product {
     description:string,
     category?:string,
     price:number,
+    images:string,
 }
 
-const store = useStore()
+const store = useStore();
 
 
 defineProps<{
@@ -35,7 +37,6 @@ defineProps<{
 
 function addToCart(product:Object) {
   store.commit('ADD_TO_CART', product);
-  console.log(store.state.cart)
 }
 
 </script>
