@@ -23,7 +23,13 @@ export default createStore<State>({
   },
   mutations: {
     ADD_TO_CART(state:State, product: Product) {
-          state.cart.push(product);
+          const repeatProduct = state.cart.find(item => item.id === product.id);
+
+          if(repeatProduct) {
+            repeatProduct.quantity += 1
+          } else {
+            state.cart.push({...product, quantity:1})
+          }
         
     }
   },
