@@ -1,7 +1,10 @@
 <template>
-  <div></div>
+  <div>
+    <div v-for="todo in todos" :key="todo.id" data-test="todo">
+      {{ todo.text }}
+    </div>
+  </div>
 </template>
-
 <script setup>
 import { ref } from 'vue'
 
