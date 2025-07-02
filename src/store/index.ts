@@ -8,6 +8,7 @@ export interface Product {
   price: number;
   category?: string;
   quantity:number;
+  images:[];
 }
 
 export interface State {

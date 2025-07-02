@@ -41,7 +41,6 @@ import { ref } from 'vue';
 import { createApp } from 'vue'
 import { computed } from 'vue'
 import { createStore, useStore } from 'vuex'
-import {state} from '../store/index'
 import SideCard from './SideCard.vue'
 const isOpen = ref(false);
 const cartEmpty = ref(false);

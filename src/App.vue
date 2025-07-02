@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import MainPage from './components/MainPage.vue'
+import Header from './components/Header.vue'
 </script>
 
-<template>
-<MainPage />
-
+<template id="app">
+    <Header />
+ <router-view />
 </template>
 
 <style scoped>

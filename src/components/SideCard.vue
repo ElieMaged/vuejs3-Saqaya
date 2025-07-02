@@ -15,7 +15,7 @@
 
 <script setup lang="ts">
 import { ref, defineProps } from 'vue'
-import type { Product } from '@/store/index' 
+import type { Product } from '../store/index' 
 
 const props = defineProps<{
   product: Product

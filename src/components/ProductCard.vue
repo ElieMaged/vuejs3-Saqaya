@@ -1,6 +1,7 @@
 <template>
   <div class="product-card">
-    <img :src='product.images[0]' :alt="product.title" class="product-image" />
+    <img :src="product.images[0]" :alt="product.title" class="product-image"
+         @click="goToProduct(product)" />
     <div class="product-info">
       <h3 class="product-name">{{ product.title }}</h3>
       <p class="product-description">{{ product.description }}</p>
@@ -13,33 +14,43 @@
 </template>
 
 <script setup lang="ts">
-import { createApp } from 'vue'
-import { computed } from 'vue'
-import { createStore, useStore } from 'vuex'
-import {state} from '../store/index'
-
+import { useRouter } from 'vue-router'
+import { useStore } from 'vuex'
 
 interface Product {
-    id:number,
-    title:string,
-    description:string,
-    category?:string,
-    price:number,
-    images:string,
+  id: number
+  title: string
+  description: string
+  category?: string
+  price: number
+  images: string[] 
 }
 
-const store = useStore();
-
-
-defineProps<{
+// Props
+const props = defineProps<{
   product: Product
 }>()
 
-function addToCart(product:Object) {
-  store.commit('ADD_TO_CART', product);
-  alert(`You have added ${product.title} to your cart!` )
+// Store
+const store = useStore()
+
+// Router
+const router = useRouter()
+
+// Add to cart
+function addToCart(product: Product) {
+  store.commit('ADD_TO_CART', product)
+  alert(`You have added ${product.title} to your cart!`)
 }
 
+// Navigate to product details
+function goToProduct(product: Product) {
+  if (!router) {
+    console.error('Router is not available.')
+    return
+  }
+  router.push(`/product/${product.id}`)
+}
 </script>
 
 <style scoped lang="scss">
