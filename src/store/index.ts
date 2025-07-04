@@ -1,12 +1,12 @@
 import { defineStore } from 'pinia'; 
 
-export const useStore = defineStore('cart', { 
-  state: () => (
-    { 
-      cart: []
-    }
-  ) }
-);
+// useStore = defineStore('cart', { 
+//   state: () => (
+//     { 
+//       cart: []
+//     }
+//   ) }
+// );
 
 
 
@@ -17,22 +17,21 @@ export interface Product {
   price: number;
   category?: string;
   quantity:number;
-  images:[];
+  images:string[];
 }
 
 export interface State {
   cart: Product[];
-  state: Object;
 }
 
 
 
-export default useStore<State>({
-  state: () =>( {
+export const useStore = defineStore('cart', {
+  state: (): State => ({
     cart: [],
   }),
   actions: {
-    addToCart(state:State, product: Product) {
+    addToCart(product: Product) {
           const repeatProduct = this.cart.find(item => item.id === product.id);
           if(repeatProduct) {
             repeatProduct.quantity += 1
@@ -43,7 +42,7 @@ export default useStore<State>({
     }
   },
   getters: {
-    cartItemCount: (state) => state.cart.filter((prev) => prev.cart.length),
+    cartItemCount: (state) => state.cart.filter((state) => state.length),
 
     cartTotal: (state:State) => state.cart.reduce((total, product) => total + product.price, 0),
 

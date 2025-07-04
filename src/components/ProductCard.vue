@@ -1,13 +1,13 @@
 <template>
   <div class="product-card">
-    <img v-if="product" id="imgLink" :src="product.images[0]" :alt="product.title" class="product-image"
-         @click="goToProduct(product)" />
+    <img v-if="props.product" id="imgLink" :src="product.images[0]" :alt="product.title" class="product-image"
+         @click="goToProduct(props.product)" />
     <div class="product-info">
       <h3 id="title" class="product-name">{{ product.title }}</h3>
       <p id="desc" class="product-description">{{ product.description }}</p>
       <div class="product-footer">
         <span id="price" class="product-price">{{ product.price }}$</span>
-        <button @click="addCart(product)" class="add-to-cart">Add to Cart</button>
+        <button @click="addCart(props.product)" class="add-to-cart">Add to Cart</button>
       </div>
     </div>
   </div>
@@ -16,7 +16,6 @@
 <script setup lang="ts">
 import { useRouter } from 'vue-router'
 import { useStore } from '../store/index'
-import { storeToRefs } from 'pinia'
 
 export interface Product {
   id: number
@@ -34,8 +33,7 @@ const props = defineProps<{
 }>()
 
 // Store
-const store = useStore()
-const {cart} = storeToRefs(store)
+const store = useStore();
 // Router
 const router = useRouter()
 
