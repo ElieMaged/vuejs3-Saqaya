@@ -1,13 +1,13 @@
 <template>
   <div class="product-card">
-    <img :src="product.images[0]" :alt="product.title" class="product-image"
+    <img v-if="product" id="imgLink" :src="product.images[0]" :alt="product.title" class="product-image"
          @click="goToProduct(product)" />
     <div class="product-info">
-      <h3 class="product-name">{{ product.title }}</h3>
-      <p class="product-description">{{ product.description }}</p>
+      <h3 id="title" class="product-name">{{ product.title }}</h3>
+      <p id="desc" class="product-description">{{ product.description }}</p>
       <div class="product-footer">
-        <span class="product-price">{{ product.price }}$</span>
-        <button @click="addToCart(product)" class="add-to-cart">Add to Cart</button>
+        <span id="price" class="product-price">{{ product.price }}$</span>
+        <button @click="addCart(product)" class="add-to-cart">Add to Cart</button>
       </div>
     </div>
   </div>
@@ -15,16 +15,18 @@
 
 <script setup lang="ts">
 import { useRouter } from 'vue-router'
-import { useStore } from 'vuex'
+import { useStore } from '../store/index'
+import { storeToRefs } from 'pinia'
 
-interface Product {
+export interface Product {
   id: number
   title: string
   description: string
   category?: string
   price: number
-  images: string[] 
+  images: string []
 }
+
 
 // Props
 const props = defineProps<{
@@ -33,13 +35,13 @@ const props = defineProps<{
 
 // Store
 const store = useStore()
-
+const {cart} = storeToRefs(store)
 // Router
 const router = useRouter()
 
 // Add to cart
-function addToCart(product: Product) {
-  store.commit('ADD_TO_CART', product)
+function addCart(product: Product) {
+  store.addToCart(product);
   alert(`You have added ${product.title} to your cart!`)
 }
 
@@ -67,7 +69,7 @@ function goToProduct(product: Product) {
   padding:10px;
 }
 .add-to-cart {
-        padding: 0.4rem 0.8rem;
+        padding: 0.8rem;
         border: none;
         background: #2b9348;
         color: white;

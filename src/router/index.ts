@@ -6,7 +6,7 @@ import ProductDetails from '../views/ProductDetails.vue'
 const routes = [
   { path: '/', name: 'MainPage', component: MainPage },
 
-  // 🔑 Dynamic route
+  // Dynamic route
   {
     path: '/product/:id',
     name: 'ProductDetails',

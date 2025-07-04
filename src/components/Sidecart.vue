@@ -39,13 +39,16 @@
 // imports
 import { ref } from 'vue';
 import { createApp } from 'vue'
-import { computed } from 'vue'
-import { createStore, useStore } from 'vuex'
+import { useStore } from '../store/index'
+import { storeToRefs } from 'pinia'
 import SideCard from './SideCard.vue'
+
 const isOpen = ref(false);
 const cartEmpty = ref(false);
+//pinia store
+    const store = useStore();
+    const { cart } = storeToRefs(store)
 
-const store = useStore();
 
 const products = computed(() => store.state.cart);
 

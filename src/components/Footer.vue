@@ -9,13 +9,13 @@ import { ref } from 'vue'
 
     <div class="footer__one__row">   
      <div class=footer__one__row__news>        
-       <h2>Join Our Newsletter</h2>
+       <h2 id="head1">Join Our Newsletter</h2>
        <p>Join Our very exciting newsletter!</p>
      </div>
 
     <div class=footer__one__row--email>        
        <input placeholder="Your E-mail" type="text" class="footer__one--input">
-       <button class=footer__one--button>Submit</button>
+       <button id="btn1" class=footer__one--button>Submit</button>
      </div>
 
     </div>

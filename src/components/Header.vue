@@ -33,7 +33,7 @@ router.push('/')
   <ul class="navbar__links" id="nav-links">
     <li class="navbar__item">
       <a href="/" class="navbar__link">
-        <span @click="goToHome()" class="navbar__icon"></span>Home
+        <span id="btnSpan" @click="goToHome()" class="navbar__icon"></span>Home
       </a>
     </li>
     <li class="navbar__item">
@@ -49,13 +49,13 @@ router.push('/')
     
   </ul>
 
-      <div class=""><img class="svg" src="../assets/dna.svg" alt="dna-picture"></div>
+      <div><img class="svg" src="../assets/dna.svg" alt="dna-picture"/></div>
 
   <div class="sign-in">
     <SideCart />
     <br>
     <br>
-    <div class="sign-in__word">Sign In</div>
+    <div id="signIn" class="sign-in__word">Sign In</div>
     
   </div>
 </nav>
