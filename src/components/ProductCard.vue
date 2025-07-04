@@ -1,45 +1,56 @@
 <template>
   <div class="product-card">
-    <img :src='product.images[0]' :alt="product.title" class="product-image" />
+    <img v-if="props.product" id="imgLink" :src="product.images[0]" :alt="product.title" class="product-image"
+         @click="goToProduct(props.product)" />
     <div class="product-info">
-      <h3 class="product-name">{{ product.title }}</h3>
-      <p class="product-description">{{ product.description }}</p>
+      <h3 id="title" class="product-name">{{ product.title }}</h3>
+      <p id="desc" class="product-description">{{ product.description }}</p>
       <div class="product-footer">
-        <span class="product-price">{{ product.price }}$</span>
-        <button @click="addToCart(product)" class="add-to-cart">Add to Cart</button>
+        <span id="price" class="product-price">{{ product.price }}$</span>
+        <button @click="addCart(props.product)" class="add-to-cart">Add to Cart</button>
       </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { createApp } from 'vue'
-import { computed } from 'vue'
-import { createStore, useStore } from 'vuex'
-import {state} from '../store/index'
+import { useRouter } from 'vue-router'
+import { useStore } from '../store/index'
 
-
-interface Product {
-    id:number,
-    title:string,
-    description:string,
-    category?:string,
-    price:number,
-    images:string,
+export interface Product {
+  id: number
+  title: string
+  description: string
+  category?: string
+  price: number
+  images: string []
 }
 
-const store = useStore();
 
-
-defineProps<{
+// Props
+const props = defineProps<{
   product: Product
 }>()
 
-function addToCart(product:Object) {
-  store.commit('ADD_TO_CART', product);
-  alert(`You have added ${product.title} to your cart!` )
+// Store
+const store = useStore();
+// Router
+const router = useRouter()
+
+// Add to cart
+function addCart(product: Product) {
+  store.addToCart(product);
+  alert(`You have added ${product.title} to your cart!`)
 }
 
+// Navigate to product details
+function goToProduct(product: Product) {
+  if (!router) {
+    console.error('Router is not available.')
+    return
+  }
+  router.push(`/product/${product.id}`)
+}
 </script>
 
 <style scoped lang="scss">
@@ -56,7 +67,7 @@ function addToCart(product:Object) {
   padding:10px;
 }
 .add-to-cart {
-        padding: 0.4rem 0.8rem;
+        padding: 0.8rem;
         border: none;
         background: #2b9348;
         color: white;

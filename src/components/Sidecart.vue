@@ -26,7 +26,7 @@
            />
           </ul>
         </div>
-        <p v-show="!cartEmpty">Grand Total :{{ cartTotal }}$</p>
+        <p v-show="!cartEmpty">Grand Total :{{ store.cartTotal }}$</p>
       </div>
     </div>
 
@@ -39,28 +39,27 @@
 // imports
 import { ref } from 'vue';
 import { createApp } from 'vue'
-import { computed } from 'vue'
-import { createStore, useStore } from 'vuex'
-import {state} from '../store/index'
+import { useStore } from '../store/index'
+import { storeToRefs } from 'pinia'
 import SideCard from './SideCard.vue'
+
+
 const isOpen = ref(false);
 const cartEmpty = ref(false);
+//pinia store
+    const store = useStore();
 
-const store = useStore();
-
-const products = computed(() => store.state.cart);
+const products = store.state
 
 
-
-const cartTotal = computed(() => store.getters.cartTotal);
-const cartCount = computed(() => store.getters.cartItemCount);
-const cartItems = computed(() => store.getters.cartItems);
+const  cartTotal = store.cartTotal;
+const  cartCount= store.cartCount;
+const  cartItems= store.cartItems;
 
 // cart toggle
 const toggleCart = () => {
-  isOpen.value = !isOpen.value;
-cartCount.value === 0 ? cartEmpty.value = true : cartEmpty.value = false;
-console.log(products.value[0])
+isOpen.value = !isOpen.value;
+cartCount === 0 ? cartEmpty.value = true : cartEmpty.value = false;
 };
 
 

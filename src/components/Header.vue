@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import SideCart from './Sidecart.vue';
+import { useRouter } from 'vue-router'
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -17,7 +18,11 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+const router = useRouter();
 
+function goToHome() {
+router.push('/')
+}
 
 </script>
 
@@ -27,8 +32,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   <ul class="navbar__links" id="nav-links">
     <li class="navbar__item">
-      <a href="#" class="navbar__link">
-        <span class="navbar__icon"></span>Home
+      <a href="/" class="navbar__link">
+        <span id="btnSpan" @click="goToHome()" class="navbar__icon"></span>Home
       </a>
     </li>
     <li class="navbar__item">
@@ -44,13 +49,13 @@ document.addEventListener("DOMContentLoaded", () => {
     
   </ul>
 
-      <div class=""><img class="svg" src="../assets/dna.svg" alt="dna-picture"></div>
+      <div><img class="svg" src="../assets/dna.svg" alt="dna-picture"/></div>
 
   <div class="sign-in">
     <SideCart />
     <br>
     <br>
-    <div class="sign-in__word">Sign In</div>
+    <div id="signIn" class="sign-in__word">Sign In</div>
     
   </div>
 </nav>

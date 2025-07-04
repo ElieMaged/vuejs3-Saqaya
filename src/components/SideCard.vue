@@ -1,11 +1,11 @@
 <template>
   <div class="side-cart-card">
-    <img :src="product.images[0]" alt="Product Image" class="product-image" />
+    <img v-if="product" :src="product.images[0]" alt="Product Image" class="product-image" />
 
     <div class="product-details">
-      <h4 class="product-title">{{ product.title }}</h4>
-      <h5>{{ product.quantity }}</h5>
-      <p class="product-price">{{ product.price }}$</p>
+      <h4 id="title" class="product-title">{{ product.title }}</h4>
+      <h5 id="quantity">{{ product.quantity }}</h5>
+      <p id="price" class="product-price">{{ product.price }}$</p>
       
       
       </div>
@@ -15,7 +15,7 @@
 
 <script setup lang="ts">
 import { ref, defineProps } from 'vue'
-import type { Product } from '@/store/index' 
+import type { Product } from '../store/index' 
 
 const props = defineProps<{
   product: Product
