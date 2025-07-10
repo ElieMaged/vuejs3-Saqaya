@@ -44,20 +44,6 @@ npm run test:unit
 ```sh
 npm run lint
 ```
-vuejs3‑Saqaya/
-├─ public/
-│   ├─ index.html
-│   └─ ...              # static assets.
-└─ src/
-   ├─ assets/           # images, fonts, global styles
-   │   └─ ...
-   ├─ components/       # reusable Vue components
-   │   └─ ...
-   ├─ router/           # Vue Router definitions
-   │   └─ index.js
-   ├─ store/            # Pinia or Vuex state management
-   │   └─ index.js
-   ├─ views/            # Page-level view components (routed pages)
-   │   └─ ...
-   ├─ App.vue           # Root component
-   └─ main.js           # Entry point
+
+
+
